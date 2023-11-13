@@ -1,10 +1,16 @@
 function Meme() {
     return (
         <main>
-            <form>
-                <input type="text" />
-                <input type="text" />
-                <button>Get a new meme image</button>
+            <form className="form">
+                <div className="form-inputs">
+                    <input type="text" placeholder="Top text" />
+                    <input type="text" placeholder="Bottom text" />
+                </div>
+                <button
+                    className="form-button"
+                >
+                    Get a new meme image
+                </button>
             </form>
         </main>
     )
