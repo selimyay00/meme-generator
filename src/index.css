@@ -5,3 +5,17 @@
 body {
   margin: 0;
 }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+  background-color: #1a2247;
+  color: white;
+}
+
+.right-side {
+  display: flex;
+  align-items: center;
+}
