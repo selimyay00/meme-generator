@@ -47,3 +47,19 @@ button {
   background-color: #1a2247;
   color: #fff;
 }
+
+.meme {
+  position: relative;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.meme > img {
+  border-radius: 5px;
+  min-width: 300px;
+  min-height: 300px;
+  max-width: 568px;
+  max-height: 335px;
+  object-fit: cover;
+}

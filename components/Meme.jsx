@@ -21,6 +21,11 @@ function Meme() {
     
     function newMemeImage() {
         const randomNumber = Math.floor(Math.random() * allMemes.length)
+        const url = allMemes[randomNumber].url
+        setMeme(prevMeme => ({
+            ...prevMeme,
+            imageUrl: url
+        }))
     }
 
     function handleChange(event) {
@@ -48,13 +53,15 @@ function Meme() {
                         type="text" 
                         placeholder="Top text"
                         value={meme.topText}
-                        onChange={handleChange}  
+                        onChange={handleChange}
+                        name="topText"  
                     />
                     <input 
                         type="text" 
                         placeholder="Bottom text"
                         value={meme.bottomText} 
                         onChange={handleChange}
+                        name="bottomText"
                     />
                 </div>
                 <button
@@ -64,10 +71,10 @@ function Meme() {
                     Get a new meme image
                 </button>
             </div>
-            <div className="meme">
+            <div className="meme" style={{ position: 'relative' }}>
                 <img src={meme.imageUrl} alt="meme_image" />
-                <h2 className="top-text">{meme.topText}</h2>
-                <h2 className="bottom-text">{meme.bottomText}</h2>
+                <h2 className="top-text" style={{ position: 'absolute', top: '10px', left: '50%', transform: 'translateX(-50%)', color: 'white' }}>{meme.topText}</h2>
+                <h2 className="bottom-text" style={{ position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)', color: 'white' }}>{meme.bottomText}</h2>
             </div>
         </main>
     )
