@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 function Meme() {
     // Top text, bottom text and image will change
@@ -8,16 +8,31 @@ function Meme() {
     const [meme, setMeme] = useState({
         topText: '',
         bottomText: '',
-        imageUrl: ''
+        imageUrl: 'http://i.imgflip.com/1bij.jpg'
     })
+
+    const [allMemes, setAllMemes] = useState([])
+
+    useEffect(() => {
+        fetch("https://api.imgflip.com/get_memes")
+        .then(res => res.json())
+        .then(data => setAllMemes(data.data.memes))
+    },[])
     
-    function handleClick() {
-        alert("button clicked!")
+    function newMemeImage() {
+        const randomNumber = Math.floor(Math.random() * allMemes.length)
     }
 
     function handleChange(event) {
         const name = event.target.name
         const value = event.target.value
+         
+        // For instance, when user typed on top text
+          //and moved and changed the bottom text,
+            // while bottom text tracks and updates the user input,
+              // top text should still hold its value
+                // this is why I used the spread operator
+        
         setMeme(prevMeme => ({
             ...prevMeme,
             [name]: value
@@ -44,10 +59,15 @@ function Meme() {
                 </div>
                 <button
                     className="form-button"
-                    onClick={handleClick}
+                    onClick={newMemeImage}
                 >
                     Get a new meme image
                 </button>
+            </div>
+            <div className="meme">
+                <img src={meme.imageUrl} alt="meme_image" />
+                <h2 className="top-text">{meme.topText}</h2>
+                <h2 className="bottom-text">{meme.bottomText}</h2>
             </div>
         </main>
     )
