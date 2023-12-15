@@ -73,8 +73,8 @@ function Meme() {
             </div>
             <div className="meme" style={{ position: 'relative' }}>
                 <img src={meme.imageUrl} alt="meme_image" />
-                <h2 className="top-text" style={{ position: 'absolute', top: '10px', left: '50%', transform: 'translateX(-50%)', color: 'white' }}>{meme.topText}</h2>
-                <h2 className="bottom-text" style={{ position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)', color: 'white' }}>{meme.bottomText}</h2>
+                <h2 className="top-text" style={{ position: 'absolute', top: '10px', left: '50%', transform: 'translateX(-50%)', color: 'white', backgroundColor: 'black' }}>{meme.topText}</h2>
+                <h2 className="bottom-text" style={{ position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)', color: 'white', backgroundColor: 'black' }}>{meme.bottomText}</h2>
             </div>
         </main>
     )
