@@ -42,7 +42,7 @@ body {
   text-indent: 5px;
 }
 
-button {
+.form-button {
   height: 30px;
   border-radius: 5px;
   background-color: black;
@@ -63,4 +63,26 @@ button {
   max-width: 568px;
   max-height: 335px;
   object-fit: cover;
+}
+
+.top-text {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translate(-50%);
+  color: #fff;
+  background-color: black;
+}
+
+/* 
+<h2 className="bottom-text" style={{ position: 'absolute', bottom: '10px', left: '50%', transform: 'translateX(-50%)', color: 'white', backgroundColor: 'black' }}
+*/
+
+.bottom-text {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%);
+  color: #fff;
+  background-color: black;
 }
