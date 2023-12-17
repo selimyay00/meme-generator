@@ -5,19 +5,25 @@ function Meme() {
       // I have to track them and update the UI
         // That's why I need to use the useState Hook
 
-    const [meme, setMeme] = useState({
-        topText: '',
-        bottomText: '',
-        imageUrl: 'http://i.imgflip.com/1bij.jpg'
-    })
-
-    const [allMemes, setAllMemes] = useState([])
-
-    useEffect(() => {
-        fetch("https://api.imgflip.com/get_memes")
-        .then(res => res.json())
-        .then(data => setAllMemes(data.data.memes))
-    },[])
+        const [meme, setMeme] = useState({
+            topText: '',
+            bottomText: '',
+            imageUrl: 'https:\/\/i.imgflip.com\/3lmzyx.jpg' // Replace with your default image URL
+        });
+        
+        const [allMemes, setAllMemes] = useState([]);
+        
+        useEffect(() => {
+            fetch("https://api.imgflip.com/get_memes")
+                .then(res => res.json())
+                .then(data => {
+                    setAllMemes(data.data.memes);
+                })
+                .catch(error => {
+                    console.error('Error fetching meme data:', error);
+                });
+        }, []);
+        
     
     function newMemeImage() {
         const randomNumber = Math.floor(Math.random() * allMemes.length)
